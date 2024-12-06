@@ -1,0 +1,4 @@
+.vscode
+.env
+/public/css
+node_modules/
