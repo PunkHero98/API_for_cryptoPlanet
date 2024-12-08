@@ -4,10 +4,17 @@ import { fileURLToPath } from "url";
 import createError from "http-errors";
 import morgan from "morgan";
 import route from "./routes/index.js";
+import cors from 'cors';
+import db from "./config/db/index.js";
 const ___dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
 const port = 3000;
+
+// set connection to mongodb
+db();
+
+app.use(cors({origin: 'http://127.0.0.1:5500'}));
 
 // app.use(express.static(path.join(___dirname , 'public')));
 app.use(morgan("combined"));
